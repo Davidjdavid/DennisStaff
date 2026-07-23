@@ -13,7 +13,7 @@ The `staff` spider crawls `https://www.town.dennis.ma.us/departments`, walks eac
 
 Each row is yielded as a dictionary with the exact field names CivicPlus staff directory imports expect (`Name`, `Address 1`, `City`, `Phone`, `Hidden`, `Show Archive`, etc.), so the output can be fed straight into a bulk import rather than needing to be manually reformatted.
 
-There's also a `people` spider stub (`spiders/people.py`) that's scaffolded but not implemented — it currently does nothing (`parse` just `pass`es).
+There's also a `people` spider stub (`spiders/people.py`) that's scaffolded but not implemented, it currently does nothing (`parse` just `pass`es).
 
 ## Project structure
 
@@ -47,5 +47,5 @@ This runs the `staff` spider and writes the results to a CSV (swap `.csv` for `.
 ## Notes
 
 - `ROBOTSTXT_OBEY = True` is set in `settings.py`, so the spider respects the target site's robots.txt.
-- Built specifically for the Town of Dennis website's markup (`allowed_domains = ["www.town.dennis.ma.us"]`) — the XPath selectors are tailored to that site's table structure and would need adjusting for a different municipal site.
-- The `extractNumber` helper inside `staff.py` is defined but currently unused (it returns on the first character due to an early `return` inside the loop) — worth a look if address parsing ever seems off.
+- Built specifically for the Town of Dennis website's markup (`allowed_domains = ["www.town.dennis.ma.us"]`), the XPath selectors are tailored to that site's table structure and would need adjusting for a different municipal site.
+- The `extractNumber` helper inside `staff.py` is defined but currently unused (it returns on the first character due to an early `return` inside the loop), worth a look if address parsing ever seems off.
